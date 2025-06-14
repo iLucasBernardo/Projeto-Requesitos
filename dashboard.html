@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RentSpace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Bem-vindo ao RentSpace</h1>
+            <p>O que você gostaria de fazer hoje?</p>
+        </div>
+        
+        <div class="dashboard-content">
+            <div class="action-cards">
+                <div class="action-card" onclick="window.location.href='room-form.html'">
+                    <div class="card-icon">🏢</div>
+                    <h3>Quero Alugar</h3>
+                    <p>Cadastre sua sala ou espaço para aluguel</p>
+                </div>
+                
+                <div class="action-card" onclick="window.location.href='room-list.html'">
+                    <div class="card-icon">🔍</div>
+                    <h3>Quero Reservar</h3>
+                    <p>Encontre e reserve o espaço ideal</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logout-section">
+            <button class="btn btn-outline" onclick="window.location.href='index.html'">Sair</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Salas - RentSpace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">← Voltar</button>
+            <h1>Salas Disponíveis</h1>
+        </div>
+        
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar por bairro, rua..." id="searchInput">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+        
+        <div class="rooms-list">
+            <div class="room-card" onclick="selectRoom(1)">
+                <div class="room-info">
+                    <h3>Sala Executiva Centro</h3>
+                    <p>📍 Rua das Flores, 123 - Centro</p>
+                    <div class="room-details">
+                        <span>👥 20 pessoas</span>
+                        <span>🪑 15 cadeiras</span>
+                        <span>❄️ Climatizado</span>
+                    </div>
+                    <div class="room-price">R$ 80/hora</div>
+                </div>
+            </div>
+            
+            <div class="room-card" onclick="selectRoom(2)">
+                <div class="room-info">
+                    <h3>Espaço Coworking Vila Nova</h3>
+                    <p>📍 Av. Principal, 456 - Vila Nova</p>
+                    <div class="room-details">
+                        <span>👥 30 pessoas</span>
+                        <span>🪑 25 cadeiras</span>
+                        <span>📽️ Projetor</span>
+                    </div>
+                    <div class="room-price">R$ 120/hora</div>
+                </div>
+            </div>
+            
+            <div class="room-card" onclick="selectRoom(3)">
+                <div class="room-info">
+                    <h3>Sala de Reunião Jardins</h3>
+                    <p>📍 Rua dos Jardins, 789 - Jardins</p>
+                    <div class="room-details">
+                        <span>👥 12 pessoas</span>
+                        <span>🪑 12 cadeiras</span>
+                        <span>🖼️ Quadro Branco</span>
+                    </div>
+                    <div class="room-price">R$ 60/hora</div>
+                </div>
+            </div>
+            
+            <div class="room-card" onclick="selectRoom(4)">
+                <div class="room-info">
+                    <h3>Auditório Empresarial</h3>
+                    <p>📍 Rua Comercial, 321 - Centro</p>
+                    <div class="room-details">
+                        <span>👥 50 pessoas</span>
+                        <span>🪑 50 cadeiras</span>
+                        <span>📽️ Projetor</span>
+                    </div>
+                    <div class="room-price">R$ 200/hora</div>
+                </div>
+            </div>
+            
+            <div class="room-card" onclick="selectRoom(5)">
+                <div class="room-info">
+                    <h3>Sala Criativa Liberdade</h3>
+                    <p>📍 Rua da Liberdade, 654 - Liberdade</p>
+                    <div class="room-details">
+                        <span>👥 15 pessoas</span>
+                        <span>🪑 15 cadeiras</span>
+                        <span>❄️ Climatizado</span>
+                    </div>
+                    <div class="room-price">R$ 90/hora</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-section">
+            <h3>Localização das Salas</h3>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="map-pin" style="top: 20%; left: 30%;" data-room="1">📍</div>
+                    <div class="map-pin" style="top: 40%; left: 60%;" data-room="2">📍</div>
+                    <div class="map-pin" style="top: 60%; left: 25%;" data-room="3">📍</div>
+                    <div class="map-pin" style="top: 30%; left: 70%;" data-room="4">📍</div>
+                    <div class="map-pin" style="top: 70%; left: 50%;" data-room="5">📍</div>
+                    <div class="map-overlay">Mapa Interativo das Salas</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function selectRoom(roomId) {
+            localStorage.setItem('selectedRoom', roomId);
+            window.location.href = 'payment.html';
+        }
+        
+        // Highlight map pins on hover
+        document.querySelectorAll('.map-pin').forEach(pin => {
+            pin.addEventListener('click', function() {
+                const roomId = this.getAttribute('data-room');
+                selectRoom(roomId);
+            });
+        });
+        
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const roomCards = document.querySelectorAll('.room-card');
+            
+            roomCards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

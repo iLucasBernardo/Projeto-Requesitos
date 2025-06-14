@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Sala - RentSpace</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <button class="back-btn" onclick="window.location.href='dashboard.html'">← Voltar</button>
+            <h1>Cadastro de Sala</h1>
+        </div>
+        
+        <form class="room-form" id="roomForm">
+            <div class="form-section">
+                <h3>Endereço</h3>
+                
+                <div class="form-group">
+                    <label for="street">Rua *</label>
+                    <input type="text" id="street" name="street" required>
+                    <span class="error-message" id="street-error"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="number">Número *</label>
+                        <input type="number" id="number" name="number" required min="1">
+                        <span class="error-message" id="number-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="complement">Complemento</label>
+                        <input type="text" id="complement" name="complement">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="neighborhood">Bairro *</label>
+                        <input type="text" id="neighborhood" name="neighborhood" required>
+                        <span class="error-message" id="neighborhood-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="state">Estado *</label>
+                        <select id="state" name="state" required>
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espírito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <span class="error-message" id="state-error"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Informações da Sala</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="capacity">Qnt. Pessoas *</label>
+                        <input type="number" id="capacity" name="capacity" required min="1">
+                        <span class="error-message" id="capacity-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tables">Mesas *</label>
+                        <input type="number" id="tables" name="tables" required min="0">
+                        <span class="error-message" id="tables-error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="chairs">Cadeiras *</label>
+                        <input type="number" id="chairs" name="chairs" required min="0">
+                        <span class="error-message" id="chairs-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bathrooms">Banheiros Disponíveis *</label>
+                        <input type="number" id="bathrooms" name="bathrooms" required min="1">
+                        <span class="error-message" id="bathrooms-error"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Recursos Disponíveis</h3>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="airConditioned" name="airConditioned">
+                        <span class="checkmark"></span>
+                        Climatizado
+                    </label>
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="projector" name="projector">
+                        <span class="checkmark"></span>
+                        Projetor
+                    </label>
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="whiteboard" name="whiteboard">
+                        <span class="checkmark"></span>
+                        Quadro Branco
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Documentação</h3>
+                
+                <div class="form-group">
+                    <label for="roomPhotos">Fotos do Local *</label>
+                    <input type="file" id="roomPhotos" name="roomPhotos" multiple accept=".jpg,.jpeg,.png" required>
+                    <span class="file-info">Formatos aceitos: JPG, PNG. Dimensão mínima: 1920px. Tamanho máximo: 5MB por arquivo.</span>
+                    <span class="error-message" id="roomPhotos-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="addressProof">Comprovante de Residência *</label>
+                    <input type="file" id="addressProof" name="addressProof" accept=".jpg,.jpeg,.png" required>
+                    <span class="file-info">Foto legível do comprovante de endereço.</span>
+                    <span class="error-message" id="addressProof-error"></span>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Cadastrar Sala</button>
+                <button type="button" class="btn btn-outline" onclick="window.location.href='dashboard.html'">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="room-form.js"></script>
+</body>
+</html>
